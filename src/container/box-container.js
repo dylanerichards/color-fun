@@ -1,12 +1,18 @@
 import React from "react"
 import Box from "../component/box.js"
+import { connect } from "react-redux"
+import * as actionCreators from "../actions/index.js"
 
 class BoxContainer extends React.Component {
   render() {
     return (
-      <Box></Box>
+      <Box color={this.props.color} handleClick={this.props.loadColor}></Box>
     )
   }
 }
 
-export default BoxContainer
+const mapStateToProps= (state) => {
+  return state
+}
+
+export default connect(mapStateToProps, actionCreators)(BoxContainer)
